@@ -2,30 +2,28 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const LoginModal = ({ showLogin, handleCloseLogin }) => {
+const RegisterModal = ({ showRegister, handleCloseRegsiter }) => {
   const navigate = useNavigate();
   
-  console.log(showLogin, handleCloseLogin);
-
   const handleOption1 = () => {
-    navigate("/login");
-    handleCloseLogin();
+    navigate("/register");
+    handleCloseRegsiter();
   };
 
   const handleOption2 = () => {
     alert("Option 2 selected");
-    handleCloseLogin();
+    handleCloseRegsiter();
   };
 
   return (
-    <Modal show={showLogin} onHide={handleCloseLogin}>
+    <Modal show={showRegister} onHide={handleCloseRegsiter}>
       <Modal.Header closeButton>
-        <Modal.Title>Login as</Modal.Title>
+        <Modal.Title>Regsiter as</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className="d-flex gap-4 justify-content-center">
           <Button variant="success" onClick={handleOption1}>
-            Applicants
+            Applicant
           </Button>
           <Button variant="danger" onClick={handleOption2}>
             Recruiter
@@ -36,4 +34,4 @@ const LoginModal = ({ showLogin, handleCloseLogin }) => {
   );
 };
 
-export default LoginModal;
+export default RegisterModal;
