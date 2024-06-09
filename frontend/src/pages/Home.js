@@ -2,6 +2,11 @@ import React from 'react'
 import LoginModal from '../components/LoginModal';
 import { useState } from 'react';
 import RegisterModal from '../components/RegisterModal';
+import Navbar from '../components/Navbar';
+import ApplicantForm from '../components/ApplicantForm';
+import Login from '../components/Login';
+import CompanyForm from '../components/CompanyForm';
+import JobpostForm from '../components/JobpostForm';
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -16,7 +21,17 @@ const Home = () => {
   return (
     <div>
       <div>
-        Hello Welcome to Our job Portal
+        <Navbar></Navbar>
+        <ApplicantForm></ApplicantForm>
+        <br />
+        <br />
+        <Login></Login>
+        <br />
+        <br />
+        <CompanyForm></CompanyForm>
+        <br />
+        <br />
+        <JobpostForm></JobpostForm>
         <div className='btn btn-primary' onClick={handleShowLogin}>
           Login
         </div>
@@ -25,6 +40,8 @@ const Home = () => {
         </div>
         <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin} />
         <RegisterModal showLRegister={showLRegister} handleCloseLRegsiter={handleCloseLRegsiter} />
+        
+
       </div>
     </div>
   )
