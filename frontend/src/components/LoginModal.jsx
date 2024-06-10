@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+//This is the modal for login button in navbar
 const LoginModal = ({ showLogin, handleCloseLogin }) => {
   const navigate = useNavigate();
 

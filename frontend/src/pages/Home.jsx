@@ -3,9 +3,9 @@ import LoginModal from "../components/LoginModal";
 import { useState } from "react";
 import RegisterModal from "../components/RegisterModal";
 import Navbar from "../components/Navbar";
-import ApplicantForm from "../components/ApplicantDetailsForm";
-import JobpostForm from "../components/JobpostForm";
+import Intro from "../components/Intro"
 
+//this is the home page or landing page where users can register or login
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -17,19 +17,18 @@ const Home = () => {
   const handleShowRegister = () => setShowRegister(true);
 
   return (
-    <div>
-      <div>
-        <Navbar
-          handleShowRegister={handleShowRegister}
-          handleShowLogin={handleShowLogin}
-        ></Navbar>
+    <div className="container">
+      <Navbar
+        handleShowRegister={handleShowRegister}
+        handleShowLogin={handleShowLogin}
+      ></Navbar>
+      <Intro/>
 
-        <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin} />
-        <RegisterModal
-          showRegister={showRegister}
-          handleCloseRegsiter={handleCloseRegsiter}
-        />
-      </div>
+      <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin} />
+      <RegisterModal
+        showRegister={showRegister}
+        handleCloseRegsiter={handleCloseRegsiter}
+      />
     </div>
   );
 };

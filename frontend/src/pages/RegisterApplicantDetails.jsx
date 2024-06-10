@@ -1,9 +1,10 @@
 import React from 'react'
 import ApplicantDetailsForm from '../components/ApplicantDetailsForm'
 
+//Registration page for Applicant Details, holding ApplicationDetailsForm component
 const RegisterApplicantDetails = () => {
   return (
-    <div>
+    <div className='container mt-4'>
         <ApplicantDetailsForm></ApplicantDetailsForm>
     </div>
   )
