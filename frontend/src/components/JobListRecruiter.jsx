@@ -3,12 +3,18 @@ import axios from "axios";
 import JobCard from "./JobCard";
 import { useNavigate } from "react-router-dom";
 
+// This is the Job list of recruiters.It means only those job post which were created by a recruiter, only they will be shown and they can edit it,delete it .
+
 const JobListRecruiter = () => {
   const navigate = useNavigate();
   const [jobPosts, setJobPosts] = useState([]);
- const handleViewApplications = (jobId)=>{
-  navigate(`/applications/${jobId}`);
- }
+
+  // can view all applications for a particular job post
+  const handleViewApplications = (jobId) => {
+    navigate(`/applications/${jobId}`);
+  };
+
+  //can delete the job post
   const handleDelete = async (jobId) => {
     try {
       await axios.delete(`http://localhost:5000/recruiter/jobpost/${jobId}`, {
@@ -22,10 +28,12 @@ const JobListRecruiter = () => {
     }
   };
 
+  // can edit the job post
   const handleEdit = (jobId) => {
     navigate(`/edit/${jobId}`);
   };
 
+  // used to fetch only those jobpost which were created by that recruiter
   useEffect(() => {
     const fetchJobPosts = async () => {
       try {
@@ -61,7 +69,6 @@ const JobListRecruiter = () => {
               <button
                 className="btn btn-success"
                 style={{
-                  
                   color: "white",
                 }}
                 type="button"
@@ -72,7 +79,6 @@ const JobListRecruiter = () => {
               <button
                 className="btn btn-danger"
                 style={{
-                  
                   color: "white",
                 }}
                 type="button"
@@ -83,7 +89,6 @@ const JobListRecruiter = () => {
               <button
                 className="btn btn-primary"
                 style={{
-                  
                   color: "white",
                 }}
                 type="button"

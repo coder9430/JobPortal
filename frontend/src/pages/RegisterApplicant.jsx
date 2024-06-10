@@ -1,10 +1,11 @@
 import React from 'react'
-import Register from '../components/ApplicantForm'
+import ApplicantForm from '../components/ApplicantForm'
 
+//Registration Page for Applicant Credentials
 const RegisterApplicant = () => {
   return (
-    <div>
-        <Register></Register>
+    <div className='container'>
+        <ApplicantForm></ApplicantForm>
     </div>
   )
 }

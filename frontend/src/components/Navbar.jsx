@@ -1,23 +1,24 @@
 import React from "react";
 
-function Navbar({ handleShowRegister, handleShowLogin }) {
+//Navbar only have regster and signin buttons
+const Navbar = ({ handleShowRegister, handleShowLogin }) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
         <div className="container-fluid">
           <div className="d-flex gap-2">
-          <a className="navbar-brand me-0" href="#">
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/3688/3688609.png"
-              alt="Logo"
-              width="50"
-              height="40"
-              className="d-inline-block align-text-top m-2"
-            />
-          </a>
-          <h3 className="mb-0 mt-3">Job-Portal</h3>
+            <a className="navbar-brand me-0" href="/">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/3688/3688609.png"
+                alt="Logo"
+                width="50"
+                height="40"
+                className="d-inline-block align-text-top m-2"
+              />
+            </a>
+            <h3 className="mb-0 mt-3">Job-Portal</h3>
           </div>
-          
+
           <div className="d-flex ml-auto ">
             <button
               className="btn me-2"
@@ -46,6 +47,6 @@ function Navbar({ handleShowRegister, handleShowLogin }) {
       </nav>
     </div>
   );
-}
+};
 
 export default Navbar;

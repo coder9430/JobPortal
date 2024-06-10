@@ -1,12 +1,13 @@
-import React from 'react'
-import LoginRecuiter from '../components/LoginRecruiter'
+import React from "react";
+import LoginRecuiter from "../components/LoginRecruiter";
 
+//This is the Login page for Recruiter,holding LoginRecruiter component
 const LoginRecruiterPage = () => {
   return (
-    <div>
-        <LoginRecuiter></LoginRecuiter>
+    <div className="container">
+      <LoginRecuiter></LoginRecuiter>
     </div>
-  )
-}
+  );
+};
 
 export default LoginRecruiterPage;

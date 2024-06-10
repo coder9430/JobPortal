@@ -91,7 +91,7 @@ exports.createJobPost = async (req, res) => {
 };
 
 exports.getAllJobPosts = async (req, res) => {
-  console.log("Dfg");
+  
   try {
     const jobPosts = await JobPost.find();
     res.json(jobPosts);
@@ -100,7 +100,6 @@ exports.getAllJobPosts = async (req, res) => {
   }
 };
 exports.getAllJobPostsRecruiters = async (req, res) => {
-  console.log("hello bikash");
   try {
     // Extract the token from the request headers
     const token = req.header("Authorization").replace("Bearer ", "");
@@ -116,7 +115,7 @@ exports.getAllJobPostsRecruiters = async (req, res) => {
     const { username } = decoded.user;
 
     // Find job posts by the username
-    console.log(username);
+    
     const jobPosts = await JobPost.find({ username });
 
     // Return the job posts

@@ -2,13 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import JobList from "./JobListRecruiter";
 
+// This is the dashboard of Recruiter where he/she can create a job post,edit it,delete it and also see the applications for each job.
+
 const DashboardRecruiter = () => {
   const navigate = useNavigate();
   const handleJobPost = () => {
     navigate("/jobpost");
   };
   return (
-    <div>
+    <div className="container">
       <h1>Dashboard</h1>
       <p>Welcome to the dashboard!</p>
       <button
@@ -22,8 +24,8 @@ const DashboardRecruiter = () => {
       >
         Create a Job
       </button>
-      <hr/>
-      <JobList/>
+      <hr />
+      <JobList />
     </div>
   );
 };

@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function JobDetails() {
+//This page gives users the details of each job post like company,about company,skills required etc.
+const JobDetails = () => {
   const { id } = useParams();
   const [jobDetails, setJobDetails] = useState(null);
+  
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
@@ -25,7 +27,7 @@ function JobDetails() {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="container">
       <Navbar />
       <div className="container mt-5">
         <div className="card shadow-sm">
@@ -44,7 +46,9 @@ function JobDetails() {
             className="card-body"
             style={{ textAlign: "left", padding: "1.5rem" }}
           >
-            <h3 className="card-title d-inline-block">{jobDetails.companyName}</h3>
+            <h3 className="card-title d-inline-block">
+              {jobDetails.companyName}
+            </h3>
             <h4 className="card-title">About us</h4>
             <p className="card-text">{jobDetails.aboutCompany}</p>
             <hr></hr>
@@ -73,21 +77,18 @@ function JobDetails() {
               <p>{jobDetails.location}</p>
             </div>
             <div className="my-3">
-  <h5 style={{ fontWeight: "bold" }}>Skills Required:</h5>
-  <ul style={{ marginLeft: "0.5rem" }}>
-    {jobDetails.skills.map((skill, index) => (
-      <li key={index}>{skill}</li>
-    ))}
-  </ul>
-</div>
-
-
-            
+              <h5 style={{ fontWeight: "bold" }}>Skills Required:</h5>
+              <ul style={{ marginLeft: "0.5rem" }}>
+                {jobDetails.skills.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default JobDetails;

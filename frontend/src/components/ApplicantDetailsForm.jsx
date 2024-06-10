@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function ApplicantForm() {
+// This component is used to get information about the applicant like its education background,contact details
 
+const ApplicantDetailsForm = () => {
+  //used to navigate to other urls
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,23 +31,23 @@ function ApplicantForm() {
     });
   };
 
+  // used to clear the formData
   const makeEmpty = () => {
     setFormData({
-        name: "",
-        contactDetails: "",
-        address: "",
-        collegeName: "",
-        degree: "",
-        branch: "",
-        passOutYear: "",
-        tenthPercentage: "",
-        twelfthPercentage: "",
-        collegeCgpa: "",
-        email: "",
-        skills: [],
+      name: "",
+      contactDetails: "",
+      address: "",
+      collegeName: "",
+      degree: "",
+      branch: "",
+      passOutYear: "",
+      tenthPercentage: "",
+      twelfthPercentage: "",
+      collegeCgpa: "",
+      email: "",
+      skills: [],
     });
-};
-
+  };
 
   const handleSkillChange = (event) => {
     const { value, checked } = event.target;
@@ -64,25 +66,24 @@ function ApplicantForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    // sending the formData to the server for storing in database , a token has been send in headers for authorisation purpose
+    // by sending token no need to send credemtials for authentication everytime
     try {
-      const token = localStorage.getItem('token');
-        const response = await axios.post(
-          "http://localhost:5000/applicant/register/applicantdetails",
-          formData,
-          {
-            headers: {
-              'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
-            },
-          }
-        );
-        console.log("Applicant Details saved Successfully!");
-        makeEmpty();
-        console.log("Form submitted successfully:", response.data);
-        navigate("/jobboard")
-        
-      }
-    catch (error) {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:5000/applicant/register/applicantdetails",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+          },
+        }
+      );
+      console.log("Applicant Details saved Successfully!");
+      makeEmpty();
+      console.log("Form submitted successfully:", response.data);
+      navigate("/jobboard");
+    } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
@@ -364,6 +365,6 @@ function ApplicantForm() {
       </form>
     </div>
   );
-}
+};
 
-export default ApplicantForm;
+export default ApplicantDetailsForm;
