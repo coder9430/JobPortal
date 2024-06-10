@@ -4,6 +4,10 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Home from "./pages/Home";
+import LoginApplicant from './pages/LoginApplicant';
+import LoginRecruiter from './pages/LoginRecruiter';
+import RegisterApplicant from './pages/RegisterApplicant';
+import RegisterRecruiter from './pages/RegisterRecruiter';
 
 const App = () => {
   return (
@@ -11,8 +15,10 @@ const App = () => {
       <div className="App">
         <Routes>
         <Route  path="/" element={<Home/>} />
-          <Route  path="/register" element={<Register/>} />
-          <Route  path="/login" element={<Login/>} />
+          <Route  path="/register/applicant" element={<RegisterApplicant/>} />
+          <Route  path="/register/recruiter" element={<RegisterRecruiter/>} />
+          <Route  path="/login/applicant" element={<LoginApplicant/>} />
+          <Route  path="/login/recruiter" element={<LoginRecruiter/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
         </Routes>
       </div>
