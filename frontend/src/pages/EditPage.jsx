@@ -84,7 +84,7 @@ const EditPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container mt-4">
       <form
         onSubmit={handleSubmit}
         style={{

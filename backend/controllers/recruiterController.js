@@ -30,6 +30,8 @@ exports.createRecruiter = async (req, res) => {
       user: {
         id: user.id,
         username: user.username,
+        companyName:user.companyName,
+        aboutCompany:user.aboutCompany
       },
     };
 
@@ -202,7 +204,7 @@ exports.updateJobPostById = async (req, res) => {
 };
 
 exports.applyjob = async (req, res) => {
-  console.log("apply");
+  
   const token = req.header("Authorization").replace("Bearer ", "");
 
   if (!token) {

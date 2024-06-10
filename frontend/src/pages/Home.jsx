@@ -3,6 +3,7 @@ import LoginModal from "../components/LoginModal";
 import { useState } from "react";
 import RegisterModal from "../components/RegisterModal";
 import Navbar from "../components/Navbar";
+import Intro from "../components/Intro"
 
 //this is the home page or landing page where users can register or login
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
         handleShowRegister={handleShowRegister}
         handleShowLogin={handleShowLogin}
       ></Navbar>
+      <Intro/>
 
       <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin} />
       <RegisterModal

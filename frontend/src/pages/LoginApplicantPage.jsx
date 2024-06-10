@@ -4,7 +4,7 @@ import LoginApplicant from "../components/LoginApplicant";
 //This is the page to hold LoginApplicant component ,login page for Applicant
 const LoginApplicantPage = () => {
   return (
-    <div className="container">
+    <div className="container mt-4">
       <LoginApplicant></LoginApplicant>
     </div>
   );

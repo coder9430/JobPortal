@@ -88,9 +88,7 @@ const JobListRecruiter = () => {
               </button>
               <button
                 className="btn btn-primary"
-                style={{
-                  color: "white",
-                }}
+                style={{background: "linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%", color: 'white'}}
                 type="button"
                 onClick={() => handleViewApplications(job._id)}
               >

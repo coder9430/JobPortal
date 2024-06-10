@@ -45,7 +45,6 @@ exports.createApplicantDetails = (req, res) => {
 
 
 exports.createApplicant = async (req, res) => {
-  console.log()
   const { username, email, password} = req.body;
 
   try {

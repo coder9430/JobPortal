@@ -4,7 +4,7 @@ import React from "react";
 const Navbar = ({ handleShowRegister, handleShowLogin }) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid">
           <div className="d-flex gap-2">
             <a className="navbar-brand me-0" href="/">
@@ -16,7 +16,7 @@ const Navbar = ({ handleShowRegister, handleShowLogin }) => {
                 className="d-inline-block align-text-top m-2"
               />
             </a>
-            <h3 className="mb-0 mt-3">Job-Portal</h3>
+            <h3 className="mb-0 mt-3"><i>Job-Portal</i></h3>
           </div>
 
           <div className="d-flex ml-auto ">

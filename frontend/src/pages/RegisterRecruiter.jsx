@@ -4,7 +4,7 @@ import RecruiterForm from "../components/RecruiterForm";
 //This is the Registraton form for Recruiters,holding Recruiterform component
 const RegisterRecruiter = () => {
   return (
-    <div className="container">
+    <div className="container mt-4">
       <RecruiterForm></RecruiterForm>
     </div>
   );

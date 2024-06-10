@@ -4,7 +4,7 @@ import ApplicantForm from '../components/ApplicantForm'
 //Registration Page for Applicant Credentials
 const RegisterApplicant = () => {
   return (
-    <div className='container'>
+    <div className='container mt-4'>
         <ApplicantForm></ApplicantForm>
     </div>
   )
