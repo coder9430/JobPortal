@@ -1,7 +1,8 @@
 // models/applicant.js
 const mongoose = require('mongoose');
 
-const applicantSchema = new mongoose.Schema({
+const applicantDetailsSchema = new mongoose.Schema({
+  username: {type: String,unique:true},
   name: String,
   contactDetails: String,
   address: String,
@@ -16,4 +17,4 @@ const applicantSchema = new mongoose.Schema({
   skills: [String],
 });
 
-module.exports = mongoose.model('ApplicantDetails', applicantSchema);
+module.exports = mongoose.model('ApplicantDetails', applicantDetailsSchema);

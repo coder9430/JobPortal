@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const LoginModal = ({ showLogin, handleCloseLogin }) => {
   const navigate = useNavigate();
-  
-  console.log(showLogin, handleCloseLogin);
 
   const handleOption1 = () => {
     navigate("/login/applicant");

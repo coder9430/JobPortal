@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom'
 
-function JobpostForm() {
+const EditPage=()=> {
+const navigate = useNavigate();
+  const { id } = useParams();
   const [formData, setFormData] = useState({
     jobTitle: '',
     salary: '',
@@ -11,7 +15,23 @@ function JobpostForm() {
     skills: []
   });
 
-  const { jobTitle, salary, jobDescription, eligibilityCriteria, location, skills } = formData;
+  useEffect(() => {
+    const fetchJobPost = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const config = {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        };
+        const response = await axios.get(`http://localhost:5000/recruiter/jobpost/${id}`, config);
+        setFormData(response.data); // Set form data with fetched job post
+      } catch (error) {
+        console.error('Error fetching job post:', error);
+      }
+    };
+    fetchJobPost();
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,12 +46,12 @@ function JobpostForm() {
     if (checked) {
       setFormData({
         ...formData,
-        skills: [...skills, value],
+        skills: [...formData.skills, value],
       });
     } else {
       setFormData({
         ...formData,
-        skills: skills.filter((skill) => skill !== value),
+        skills: formData.skills.filter((skill) => skill !== value),
       });
     }
   };
@@ -46,17 +66,10 @@ function JobpostForm() {
           'Authorization': `Bearer ${token}`
         }
       };
-      const response = await axios.post('http://localhost:5000/recruiter/jobpost', formData, config);
-      console.log('Form submitted successfully:', response.data);
-      alert("Job created Successfully!")
-      setFormData({
-        jobTitle: '',
-        salary: '',
-        jobDescription: '',
-        eligibilityCriteria: '',
-        location: '',
-        skills: []
-      });
+      await axios.put(`http://localhost:5000/recruiter/jobpost/${id}`, formData, config); // Use PUT method to update job post
+      console.log('Form submitted successfully');
+      alert('Job updated successfully!');
+      navigate(-1)
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -82,7 +95,7 @@ function JobpostForm() {
             fontFamily: 'Montserrat, sans-serif'
           }} 
           className='col-xl-8 col-md-8 col-sm-8'>
-            Job Post
+            Edit a Job Post
           </h3>
         </div>
         <div className="row m-2">
@@ -93,7 +106,7 @@ function JobpostForm() {
               placeholder="Job Title" 
               aria-label="Job Title" 
               name="jobTitle"
-              value={jobTitle}
+              value={formData.jobTitle}
               onChange={handleChange}
             />
           </div>
@@ -104,7 +117,7 @@ function JobpostForm() {
               placeholder="Salary" 
               aria-label="Salary" 
               name="salary"
-              value={salary}
+              value={formData.salary}
               onChange={handleChange}
             />
           </div>
@@ -117,7 +130,7 @@ function JobpostForm() {
               placeholder="Job Description" 
               aria-label="Job Description" 
               name="jobDescription"
-              value={jobDescription}
+              value={formData.jobDescription}
               onChange={handleChange}
             />
           </div>
@@ -130,7 +143,7 @@ function JobpostForm() {
               placeholder="Eligibility Criteria" 
               aria-label="Eligibility Criteria" 
               name="eligibilityCriteria"
-              value={eligibilityCriteria}
+              value={formData.eligibilityCriteria}
               onChange={handleChange}
             />
           </div>
@@ -141,7 +154,7 @@ function JobpostForm() {
               placeholder="Location" 
               aria-label="Location" 
               name="location"
-              value={location}
+              value={formData.location}
               onChange={handleChange}
             />
           </div>
@@ -236,4 +249,4 @@ function JobpostForm() {
   );
 }
 
-export default JobpostForm;
+export default EditPage;
