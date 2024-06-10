@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const applicantRoutes = require('./routes/applicantRoutes');
+const recruiterRoutes = require("./routes/recruiterRoutes")
 
 const app = express();
 
@@ -21,9 +22,10 @@ mongoose.connect('mongodb+srv://bikashempire321:3ySUuELCUVkxhDim@cluster0.eqhrpl
 
 // Routes
 const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
+app.use('/api/auth/login', authRoutes);
 
-app.use('/register', applicantRoutes);
+app.use('/applicant', applicantRoutes);
+app.use('/recruiter', recruiterRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

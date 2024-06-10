@@ -1,8 +1,11 @@
 // routes/applicantRoutes.js
 const express = require('express');
 const router = express.Router();
-const applicantController = require('../controllers/applicantController');
+const {createApplicantDetails,createApplicant} = require('../controllers/applicantController');
 
-router.post('/applicants', applicantController.createApplicant);
+
+router.post('/register/applicantdetails', createApplicantDetails);
+router.post('/register', createApplicant);
+
 
 module.exports = router;

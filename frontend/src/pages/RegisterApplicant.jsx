@@ -1,10 +1,10 @@
 import React from 'react'
-import ApplicantForm from '../components/ApplicantForm'
+import Register from '../components/ApplicantForm'
 
 const RegisterApplicant = () => {
   return (
     <div>
-        <ApplicantForm></ApplicantForm>
+        <Register></Register>
     </div>
   )
 }

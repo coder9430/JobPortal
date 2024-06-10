@@ -1,10 +1,10 @@
 import React from 'react'
-import CompanyForm from '../components/CompanyForm'
+import RecruiterForm from '../components/RecruiterForm'
 
 const RegisterRecruiter = () => {
   return (
     <div>
-        <CompanyForm></CompanyForm>
+        <RecruiterForm></RecruiterForm>
     </div>
   )
 }

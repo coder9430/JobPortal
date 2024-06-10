@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const RegisterModal = ({ showRegister, handleCloseRegsiter }) => {
   const navigate = useNavigate();
-  console.log("register")
+
   const handleOption1 = () => {
     navigate("/register/applicant");
     handleCloseRegsiter();
